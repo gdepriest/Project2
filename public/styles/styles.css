@@ -1,3 +1,11 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+nav {
+  margin-bottom: 50px;
+}
+
+.container {
+  padding: 20px;
+}
