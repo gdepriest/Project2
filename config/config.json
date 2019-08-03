@@ -3,6 +3,7 @@
     "username": "root",
     "password": null,
     "database": "surveydb",
+    "port": 3306,
     "host": "localhost",
     "dialect": "mysql"
   },
