@@ -20,6 +20,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/survey", function(req, res) {
+    res.remder("")
+  })
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
