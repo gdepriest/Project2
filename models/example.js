@@ -17,4 +17,3 @@ module.exports = function(sequelize, DataTypes) {
   return Survey;
 };
 
-//schema
