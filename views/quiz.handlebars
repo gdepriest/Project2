@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8"> -->
+  <link rel="stylesheet" href="./style.css" media="screen" title="no title" charset="utf-8">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <title>Quiz</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <br>
+    <br>
+    <h2>
+      <center>Survey Questionaire</center>
+    </h2>
+    <hr>
+    <br>
+
+    <div class="container">
+      <div class="col-8 mx-auto">
+        <form>
+
+          <div class="form-group">
+            <label class="control-label">Full Name</label>
+            <div class="input-group"><span class="input-group-addon"></span><input id="fullName" name="fullName"
+                placeholder="" class="form-control" required="true" value="" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">County</label>
+            <div class="inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon" style="max-width: 100%;"></span>
+                <select class="selectpicker form-control">
+                  <option selected>...........................</option>
+                  <option>Adams</option>
+                  <option>Alamosa</option>
+                  <option>Archuleta</option>
+                  <option>Baca</option>
+                  <option>Bent</option>
+                  <option>Boulder</option>
+                  <option>Broomfield</option>
+                  <option>Chaffee</option>
+                  <option>Cheyenne</option>
+                  <option>Clear Creek</option>
+                  <option>Conejos</option>
+                  <option>Costilla</option>
+                  <option>Crowley</option>
+                  <option>Custer</option>
+                  <option>Delta</option>
+                  <option>Denver</option>
+                  <option>Dolores</option>
+                  <option>Douglas</option>
+                  <option>Eagle</option>
+                  <option>El Paso</option>
+                  <option>Elbert</option>
+                  <option>Fremont</option>
+                  <option>Garfield</option>
+                  <option>Gilpin</option>
+                  <option>Grand</option>
+                  <option>Gunnison</option>
+                  <option>Hinsdale</option>
+                  <option>Huerfano</option>
+                  <option>Jackson</option>
+                  <option>Jefferson</option>
+                  <option>Kiowa</option>
+                  <option>Kit Carson</option>
+                  <option>La Plata</option>
+                  <option>Lake</option>
+                  <option>Larimer</option>
+                  <option>Las Animas</option>
+                  <option>Lincoln</option>
+                  <option>Logan</option>
+                  <option>Mesa</option>
+                  <option>Mineral</option>
+                  <option>Moffat</option>
+                  <option>Montezuma</option>
+                  <option>Montrose</option>
+                  <option>Morgan</option>
+                  <option>Otero</option>
+                  <option>Ouray</option>
+                  <option>Park</option>
+                  <option>Phillips</option>
+                  <option>Pitkin</option>
+                  <option>Prowers</option>
+                  <option>Pueblo</option>
+                  <option>Rio Blanco</option>
+                  <option>Rio Grande</option>
+                  <option>Routt</option>
+                  <option>Saguache</option>
+                  <option>San Juan</option>
+                  <option>San Miguel</option>
+                  <option>Sedgwick</option>
+                  <option>Summit</option>
+                  <option>Teller</option>
+                  <option>Washington</option>
+                  <option>Weld</option>
+                  <option>Yuma</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label">Yearly Income</label>
+            <div class="row">
+              <div class="col-6">
+                <input id="salary" name="salary" placeholder="$" class="form-control" required="true" value=""
+                  type="text" />
+              </div>
+              <div class="col-6 custom-control custom-radio">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio1">Monthly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio2">Yearly</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Menstruation</label>
+            <div class="row">
+              <div class="col-6">
+                <input id="menstruation" name="menstruation" placeholder="$" class="form-control" required="true"
+                  value="" type="text" />
+              </div>
+              <div class="col-6 custom-control custom-radio">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio3">Monthly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio4">Yearly</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Pregnancy</label>
+            <div class="row">
+              <div class="col-6">
+                <input id="pregnancy" name="pregnancy" placeholder="$" class="form-control" required="true" value=""
+                  type="text" />
+              </div>
+              <div class="col-6 custom-control custom-radio">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio5">Monthly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio6" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio6">Yearly</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Garnments</label>
+            <div class="row">
+              <div class="col-6">
+                <input id="garnment" name="garnment" placeholder="$" class="form-control" required="true" value=""
+                  type="text" />
+              </div>
+              <div class="col-6 custom-control custom-radio">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio7" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio7">Monthly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio8" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio8">Yearly</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Feedback</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+          <br>
+          <br>
+       
+          <div class="row">
+            <button type="submit" class="btn btn-success mx-auto" id="submit">Submit</button>
+          </div>
+          <a href="/">
+            <center>Home</center>
+          </a>
+
+        </form>
+        <br>
+        <br>
+      </div>
+    </div>
+ 
+  </div>
+
+     <!--footer -->
+     <footer class="footer">
+       
+        <div class="copyright">
+          <small class="align-self-center">© 2019. All Rights Reserved.</small>
+       
+      </div>
+</footer>
+  <script type="text/javascript">
+  </script>
+</body>
+
+</html>
