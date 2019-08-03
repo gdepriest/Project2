@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Survey = sequelize.define("Survey", {
-	name: DataTypes.STRING,
-	county: DataTypes.STRING,
+    name: DataTypes.STRING,
+    county: DataTypes.STRING,
     income: DataTypes.INTEGER,
     menstruation_m: DataTypes.INTEGER,
     menstruation_y: DataTypes.INTEGER,
