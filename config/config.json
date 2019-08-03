@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "surveydb",
+    "database": "Survey",
     "port": 3306,
     "host": "localhost",
     "dialect": "mysql"
@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "surveydb",
+    "database": "Survey",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
