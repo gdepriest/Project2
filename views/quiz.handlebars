@@ -23,7 +23,7 @@
             <div class="inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon" style="max-width: 100%;"></span>
-                <select class="selectpicker form-control">
+                <select class="selectpicker form-control" id="county">
                   <option selected>...........................</option>
                   <option>Adams</option>
                   <option>Alamosa</option>
@@ -100,7 +100,7 @@
                 <input id="salary" name="salary" placeholder="$" class="form-control" required="true" value=""
                   type="text" />
               </div>
-              <div class="col-6 custom-control custom-radio">
+              {{!-- <div class="col-6 custom-control custom-radio">
                 <div class="custom-control custom-radio">
                   <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                   <label class="custom-control-label" for="customRadio1">Monthly</label>
@@ -109,7 +109,7 @@
                   <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
                   <label class="custom-control-label" for="customRadio2">Yearly</label>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
 
@@ -120,7 +120,7 @@
                 <input id="menstruation" name="menstruation" placeholder="$" class="form-control" required="true"
                   value="" type="text" />
               </div>
-              <div class="col-6 custom-control custom-radio">
+              <div id="mOrY" class="col-6 custom-control custom-radio">
                 <div class="custom-control custom-radio">
                   <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
                   <label class="custom-control-label" for="customRadio3">Monthly</label>
@@ -154,10 +154,10 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label">Garnments</label>
+            <label class="control-label">Garments</label>
             <div class="row">
               <div class="col-6">
-                <input id="garnment" name="garnment" placeholder="$" class="form-control" required="true" value=""
+                <input id="garment" name="garment" placeholder="$" class="form-control" required="true" value=""
                   type="text" />
               </div>
               <div class="col-6 custom-control custom-radio">

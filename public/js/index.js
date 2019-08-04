@@ -64,17 +64,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var response = {
+    name: $("#fullName").val().trim(),
+    county: $("#county").val().trim(),
+    income: $("#salary").val().trim(),
+    menstruation: $("#menstruation").val().trim(),
+    pregnancy: $("#pregnancy").val().trim(),
+    
   };
+  //
 
   if (!(example.text && example.description)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(response).then(function() {
     refreshExamples();
   });
 
@@ -98,5 +103,5 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 
-$submitBtn.on("click", handleFormSubmit);
+$("#submit").on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);

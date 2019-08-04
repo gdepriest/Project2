@@ -29,6 +29,14 @@ module.exports = function(app) {
     res.render("quiz")
   })
 
+  app.get("/resultsAvg", function(req, res) {
+    res.render("resultsAvg")
+  })
+
+  app.get("/resultsPie", function(req, res) {
+    res.render("resultsPie")
+  })
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
