@@ -1,24 +1,17 @@
-var db = require("../models");
-
+var surveyController = require("../controllers/survey-controller")
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
+  // Get all Survey Data
+  app.get("/api/survey", function(req, res) {
+    surveyController.findAll(req, res)
   });
 
-  // Create a new example
-  app.post("/api/data", function(req, res) {
-    db.Survey.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  // Create a new Survey
+  app.post("/api/survey", function(req, res) {
+    surveyController.createOne(req, res)
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  // Delete a Survey by id
+  app.delete("/api/survey/:id", function(req, res) {
+    surveyController.deleteOne(req, res)
   });
 };

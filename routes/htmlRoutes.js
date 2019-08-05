@@ -11,7 +11,7 @@ module.exports = function(app) {
   // });
 
   app.get("/", function(req, res) {
-    res.render("index", {
+    res.render("home", {
       msg: "Keeping this to understand how to use"
     });
   })
@@ -27,6 +27,14 @@ module.exports = function(app) {
 
   app.get("/survey", function(req, res) {
     res.render("quiz")
+  })
+
+  app.get("/resultsAvg", function(req, res) {
+    res.render("resultsAvg")
+  })
+
+  app.get("/resultsPie", function(req, res) {
+    res.render("resultsPie")
   })
 
   // Render 404 page for any unmatched routes
