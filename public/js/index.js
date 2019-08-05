@@ -6,25 +6,22 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
+  saveSurvey: function(newUserInput) {
+    return $.post("/api/survey", newUserInput)
+    .then(data=>{
+      console.log(data)
+      window.location = "/results"
+    })
   },
-  getExamples: function() {
+  getSurvey: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/survey",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteSurvey: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/survey/" + id,
       type: "DELETE"
     });
   }
@@ -64,27 +61,51 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var response = {
+  // make sure all require filled are filled in
+  $("#cost-survey")[0].reportValidity()
+
+  event.preventDefault();
+
+  var newUserInput = {
     name: $("#fullName").val().trim(),
-    county: $("#county").val().trim(),
+    county: $("#county").val(),
     income: $("#salary").val().trim(),
     menstruation: $("#menstruation").val().trim(),
+    menstruation_monthly: ($("input:radio[name ='menstruationMonthly']:checked").val() === "false")? false : true,
     pregnancy: $("#pregnancy").val().trim(),
-    
+    pregnancy_monthly: ($("input:radio[name ='pregnancyMonthly']:checked").val() === "false" )? false : true,
+    cosmetics: $("#cosmetics").val().trim(),
+    cosmetics_monthly: ($("input:radio[name ='cosmeticsMonthly']:checked").val() === "false")? false : true,
+    garments: $("#garment").val().trim(),
+    garments_monthly: ($("input:radio[name ='garmentMonthly']:checked").val() === "false")? false : true ,
+    feedback: $("#feedbackText").val().trim()
   };
-  //
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
 
-  API.saveExample(response).then(function() {
+  API.saveSurvey(newUserInput).then(function() {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $("#fullName").val("");
+  $("#county").val("");
+  $("#salary").val("");
+  $("#menstruation").val("");
+  $("#pregnancy").val("");
+  $("#cosmetics").val("");
+  $("#garment").val("");
+  $("#feedbackText").val("");
+  $('#customRadio9').attr("checked", false);
+  $('#customRadio7').attr("checked", false);
+  $('#customRadio5').attr("checked", false);
+  $('#customRadio3').attr("checked", false);
+  $('#customRadio10').attr("checked", true);
+  $('#customRadio8').attr("checked", true);
+  $('#customRadio6').attr("checked", true);
+  $('#customRadio4').attr("checked", true);
+
+
+  
+
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
