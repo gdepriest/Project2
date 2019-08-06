@@ -5,20 +5,9 @@
 
 
 .container{
-  /* padding: 5px 50px 5px 50px;  */
-  /* background: rgb(241, 248, 236); */
-  /* font-family: 'Nanum Gothic', sans-serif; */
   font-family: 'Source Sans Pro', sans-serif;
   padding: 20px;
 }
-
-footer{
-  text-align: center;
-  background: rgb(250, 233, 213);
-  height:75px;
-  padding-top:30px;
-}
-
 
 nav {
   margin-bottom: 50px;
