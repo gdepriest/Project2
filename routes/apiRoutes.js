@@ -13,35 +13,12 @@ module.exports = function (app) {
 
   // Create a new Survey
   app.post("/api/survey", function (req, res) {
-    var {
-      name,
-      county,
-      income,
-      menstruation,
-      menstruation_monthly,
-      pregnancy,
-      pregnancy_monthly,
-      cosmetics,
-      cosmetics_monthly,
-      garments,
-      garments_monthly,
-      feedback
-    } = req.body;
+    console.log("API Survey post route hit");
+    console.log(req.body);
 
-    var newSurvey= {
-      name,
-      county,
-      income,
-      menstruation,
-      menstruation_monthly,
-      pregnancy,
-      pregnancy_monthly,
-      cosmetics,
-      cosmetics_monthly,
-      garments,
-      garments_monthly,
-      feedback
-    };
+    db.Survey.create(req.body).then(function(surveys) {
+      res.json(surveys);
+    })
 
   });
 

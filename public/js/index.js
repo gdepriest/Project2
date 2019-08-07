@@ -10,7 +10,7 @@ var API = {
     return $.post("/api/survey", newUserInput)
     .then(data=>{
       console.log(data)
-      window.location = "/results"
+      window.location = "/personalData"
     })
   },
   getSurvey: function() {
@@ -28,43 +28,44 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshExamples = function() {
+//   API.getExamples().then(function(data) {
+//     var $examples = data.map(function(example) {
+//       var $a = $("<a>")
+//         .text(example.text)
+//         .attr("href", "/example/" + example.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": example.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//     $exampleList.empty();
+//     $exampleList.append($examples);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+function handleFormSubmit(event) {
   event.preventDefault();
-
+  console.log("in submit ");
+  
   // make sure all require filled are filled in
   $("#cost-survey")[0].reportValidity()
 
-  event.preventDefault();
+  // event.preventDefault();
 
   var newUserInput = {
     name: $("#fullName").val().trim(),
@@ -83,7 +84,8 @@ var handleFormSubmit = function(event) {
 
 
   API.saveSurvey(newUserInput).then(function() {
-    refreshExamples();
+    // refreshExamples();
+    console.log("front end post happened");
   });
 
   $("#fullName").val("");
@@ -110,19 +112,21 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+//   API.deleteExample(idToDelete).then(function() {
+//     refreshExamples();
+//   });
+// };
 
 
 
 // Add event listeners to the submit and delete buttons
 
-$("#submit").on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $("#cost-survey").on("submit", handleFormSubmit());
+$(document).on("submit", "#cost-survey", handleFormSubmit);
+
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
