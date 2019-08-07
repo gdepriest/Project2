@@ -12,7 +12,7 @@ module.exports = function(app) {
 
   app.get("/", function(req, res) {
     res.render("home", {
-      msg: "Keeping this to understand how to use"
+      title: "Women's Contribution to Sales Tax Revenue in Colorado"
     });
   })
 
@@ -26,15 +26,27 @@ module.exports = function(app) {
   // });
 
   app.get("/survey", function(req, res) {
-    res.render("quiz")
+    res.render("quiz", {
+      title: "Survey Questionnaire"
+    })
   })
 
   app.get("/resultsAvg", function(req, res) {
-    res.render("resultsAvg")
+    res.render("resultsAvg", {
+      title: "Collected Data Summary"
+    })
   })
 
   app.get("/resultsPie", function(req, res) {
-    res.render("resultsPie")
+    res.render("resultsPie", {
+      title: "State Revenue Impact"
+    })
+  })
+
+  app.get("/personalData", function(req, res) {
+    res.render("personal", {
+      title: "Personal Data"
+    })
   })
 
   // Render 404 page for any unmatched routes
