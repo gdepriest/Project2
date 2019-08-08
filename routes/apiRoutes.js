@@ -14,10 +14,11 @@ module.exports = function (app) {
   // Create a new Survey
   app.post("/api/survey", function (req, res) {
     console.log("API Survey post route hit");
-    console.log(req.body);
-
+    console.log("API Routes", req.body);
+//do math on backend
+//req.body.total = req.body.menstruation + jsldjfldskjlj
     db.Survey.create(req.body).then(function(surveys) {
-      res.json(surveys);
+      res.render("personal", surveys);
     })
 
   });
