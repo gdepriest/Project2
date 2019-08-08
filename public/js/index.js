@@ -1,25 +1,25 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// var $exampleText = $("#example-text");
+// var $exampleDescription = $("#example-description");
+// var $submitBtn = $("#submit");
+// var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveSurvey: function(newUserInput) {
+  saveSurvey: function (newUserInput) {
     return $.post("/api/survey", newUserInput)
-    .then(data=>{
-      console.log(data)
-      window.location = "/personalData"
-    })
+      .then(data => {
+        console.log("index.js data: ", data)
+        // window.location = "/personalData"
+      })
   },
-  getSurvey: function() {
+  getSurvey: function () {
     return $.ajax({
       url: "api/survey",
       type: "GET"
     });
   },
-  deleteSurvey: function(id) {
+  deleteSurvey: function (id) {
     return $.ajax({
       url: "api/survey/" + id,
       type: "DELETE"
@@ -61,29 +61,62 @@ var API = {
 function handleFormSubmit(event) {
   event.preventDefault();
   console.log("in submit ");
-  
+
   // make sure all require filled are filled in
   $("#cost-survey")[0].reportValidity()
 
   // event.preventDefault();
+  var menstruationTotal;
+  if ($("input:radio[name ='menstruationMonthly']:checked").val() === "true") {
+    menstruationTotal = parseInt($("#menstruation").val().trim()) * 12
+  } else {
+    menstruationTotal = parseInt($("#menstruation").val().trim());
+  };
+
+  var pregnancyTotal;
+  if ($("input:radio[name ='pregnancyMonthly']:checked").val() === "true") {
+    pregnancyTotal = parseInt($("#pregnancy").val().trim()) * 12
+  } else {
+    pregnancyTotal = parseInt($("#pregnancy").val().trim());
+  };
+
+  var cosmeticsTotal;
+  if ($("input:radio[name ='cosmeticsMonthly']:checked").val() === "true") {
+    cosmeticsTotal = parseInt($("#cosmetics").val().trim()) * 12
+  } else {
+    cosmeticsTotal = parseInt($("#cosmetics").val().trim());
+  };
+
+  var garmentTotal;
+  if ($("input:radio[name ='garmentMonthly']:checked").val() === "true") {
+    garmentTotal = parseInt($("#garment").val().trim()) * 12
+  } else {
+    garmentTotal = parseInt($("#garment").val().trim());
+  };
+
+  var totalExpense = menstruationTotal + pregnancyTotal + cosmeticsTotal + garmentTotal;
+
+  var incomePercentage = parseFloat(totalExpense / parseInt($("#salary").val().trim()));
 
   var newUserInput = {
     name: $("#fullName").val().trim(),
     county: $("#county").val(),
     income: $("#salary").val().trim(),
-    menstruation: $("#menstruation").val().trim(),
-    menstruation_monthly: ($("input:radio[name ='menstruationMonthly']:checked").val() === "false")? false : true,
-    pregnancy: $("#pregnancy").val().trim(),
-    pregnancy_monthly: ($("input:radio[name ='pregnancyMonthly']:checked").val() === "false" )? false : true,
-    cosmetics: $("#cosmetics").val().trim(),
-    cosmetics_monthly: ($("input:radio[name ='cosmeticsMonthly']:checked").val() === "false")? false : true,
-    garments: $("#garment").val().trim(),
-    garments_monthly: ($("input:radio[name ='garmentMonthly']:checked").val() === "false")? false : true ,
-    feedback: $("#feedbackText").val().trim()
+    menstruation: menstruationTotal,
+    menstruation_monthly: ($("input:radio[name ='menstruationMonthly']:checked").val() === "false") ? false : true,
+    pregnancy: pregnancyTotal,
+    pregnancy_monthly: ($("input:radio[name ='pregnancyMonthly']:checked").val() === "false") ? false : true,
+    cosmetics: cosmeticsTotal,
+    cosmetics_monthly: ($("input:radio[name ='cosmeticsMonthly']:checked").val() === "false") ? false : true,
+    garments: garmentTotal,
+    garments_monthly: ($("input:radio[name ='garmentMonthly']:checked").val() === "false") ? false : true,
+    feedback: $("#feedbackText").val().trim(), 
+    totalExpense: totalExpense,
+    incomePercentage: incomePercentage
   };
 
 
-  API.saveSurvey(newUserInput).then(function() {
+  API.saveSurvey(newUserInput).then(function () {
     // refreshExamples();
     console.log("front end post happened");
   });
@@ -106,7 +139,7 @@ function handleFormSubmit(event) {
   $('#customRadio4').attr("checked", true);
 
 
-  
+
 
 };
 

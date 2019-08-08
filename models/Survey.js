@@ -11,7 +11,9 @@ module.exports = function(sequelize, DataTypes) {
     cosmetics_monthly: DataTypes.BOOLEAN,
     garments: DataTypes.INTEGER,
     garments_monthly: DataTypes.BOOLEAN,
-    feedback: DataTypes.TEXT
+    feedback: DataTypes.TEXT,
+    totalExpense: DataTypes.INTEGER,
+    incomePercentage: DataTypes.DECIMAL(3, 2)
   });
   return Survey;
 };
