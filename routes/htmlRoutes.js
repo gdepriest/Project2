@@ -44,13 +44,10 @@ module.exports = function(app) {
   })
 
   app.get("/personalData/:id", function(req, res) {
-    id = req.params.id;
-    db.Survey.findByPk (id).then (function(data) {
-      console.log(".get data: ", data)
-        res.render("personal", {
-      title: "Personal Data"
-    })
-    })
+
+          res.render("personal", {
+        title: "Personal Data"
+      })
   })
 
   // Render 404 page for any unmatched routes
