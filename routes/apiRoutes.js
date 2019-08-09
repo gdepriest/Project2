@@ -11,6 +11,16 @@ module.exports = function (app) {
     })
   });
 
+  app.get("/api/personalData/:id", function(req, res) {
+    id = req.params.id;
+    console.log(id);
+    db.Survey.findByPk (id).then (function(data) {
+      console.log(".get data: ", data);
+      res.send(data.dataValues);
+    })
+
+  })
+
   // Create a new Survey
   app.post("/api/survey", function (req, res) {
     console.log("API Survey post route hit");
