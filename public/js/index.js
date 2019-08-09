@@ -9,8 +9,9 @@ var API = {
   saveSurvey: function (newUserInput) {
     return $.post("/api/survey", newUserInput)
       .then(data => {
-        console.log("index.js data: ", data)
-        // window.location = "/personalData"
+        var id = data.id;
+        console.log("index.js data: ", data);
+        window.location = `/personalData/${id}`
       })
   },
   getSurvey: function () {
@@ -19,12 +20,6 @@ var API = {
       type: "GET"
     });
   },
-  deleteSurvey: function (id) {
-    return $.ajax({
-      url: "api/survey/" + id,
-      type: "DELETE"
-    });
-  }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
@@ -56,6 +51,15 @@ var API = {
 //   });
 // };
 
+var menstruationTotal;
+var pregnancyTotal;
+var cosmeticsTotal;
+var garmentTotal;
+var totalExpense;
+var incomePercentage;
+
+
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 function handleFormSubmit(event) {
@@ -66,37 +70,33 @@ function handleFormSubmit(event) {
   $("#cost-survey")[0].reportValidity()
 
   // event.preventDefault();
-  var menstruationTotal;
   if ($("input:radio[name ='menstruationMonthly']:checked").val() === "true") {
     menstruationTotal = parseInt($("#menstruation").val().trim()) * 12
   } else {
     menstruationTotal = parseInt($("#menstruation").val().trim());
   };
 
-  var pregnancyTotal;
   if ($("input:radio[name ='pregnancyMonthly']:checked").val() === "true") {
     pregnancyTotal = parseInt($("#pregnancy").val().trim()) * 12
   } else {
     pregnancyTotal = parseInt($("#pregnancy").val().trim());
   };
 
-  var cosmeticsTotal;
   if ($("input:radio[name ='cosmeticsMonthly']:checked").val() === "true") {
     cosmeticsTotal = parseInt($("#cosmetics").val().trim()) * 12
   } else {
     cosmeticsTotal = parseInt($("#cosmetics").val().trim());
   };
 
-  var garmentTotal;
   if ($("input:radio[name ='garmentMonthly']:checked").val() === "true") {
     garmentTotal = parseInt($("#garment").val().trim()) * 12
   } else {
     garmentTotal = parseInt($("#garment").val().trim());
   };
 
-  var totalExpense = menstruationTotal + pregnancyTotal + cosmeticsTotal + garmentTotal;
+  totalExpense = menstruationTotal + pregnancyTotal + cosmeticsTotal + garmentTotal;
 
-  var incomePercentage = parseFloat(totalExpense / parseInt($("#salary").val().trim()));
+  incomePercentage = parseFloat(totalExpense / parseInt($("#salary").val().trim()));
 
   var newUserInput = {
     name: $("#fullName").val().trim(),

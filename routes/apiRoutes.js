@@ -5,7 +5,7 @@ module.exports = function (app) {
   // Get all Survey Data
   app.get("/api/survey", function (req, res) {
     db.Survey.findAll({
-
+      // attributes: {include: [[sequelize.fn('AVG', sequelize.col('menstruation'))]]},
     }).then(function (surveys) {
       res.json(surveys);
     })
@@ -18,7 +18,7 @@ module.exports = function (app) {
 //do math on backend
 //req.body.total = req.body.menstruation + jsldjfldskjlj
     db.Survey.create(req.body).then(function(surveys) {
-      res.render("personal", surveys);
+      res.send(surveys);
     })
 
   });
