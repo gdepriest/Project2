@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
-    var Tax = sequelize.define("Tax", {
+    var Average = sequelize.define("Average", {
   
     });
-    return Tax;
+    return Average;
   };
   
   

@@ -7,3 +7,11 @@
       </div>
     </div>
 </div>
+
+<script>
+  var pName = window.location.pathname;
+  var route = `/api${pName}`;
+  console.log(route);
+  $.get(route)
+    .then(function (data) {
+    })
