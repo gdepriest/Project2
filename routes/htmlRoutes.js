@@ -45,9 +45,9 @@ module.exports = function(app) {
 
   app.get("/personalData/:id", function(req, res) {
 
-          res.render("personal", {
-        title: "Personal Data"
-      })
+      res.render("personal", {
+      title: "Personal Data"
+    })
   })
 
   // Render 404 page for any unmatched routes
