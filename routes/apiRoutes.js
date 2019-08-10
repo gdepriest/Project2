@@ -71,7 +71,7 @@ module.exports = function (app) {
   });
 
   // Delete a Survey by id
-  // app.delete("/api/survey/:id", function(req, res) {
-  //   surveyController.deleteOne(req, res)
-  // });
+  app.delete("/api/survey/:id", function(req, res) {
+    surveyController.deleteOne(req, res)
+  });
 };
