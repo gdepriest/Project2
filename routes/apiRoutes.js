@@ -14,33 +14,43 @@ module.exports = function (app) {
     console.log(id);
     db.Survey.findByPk(id).then(function (data) {
       console.log(".get data: ", data);
-      res.send(data.dataValues);
+      res.send(data);
     })
 
   })
 
   app.get("/api/resultsAvg", function (req, res) {
-    db.Survey.findAll({
-      attributes: {
-        include: [
-          [sequelize.fn('AVG', sequelize.col('menstruation'))]
-        ]
-      },
-
-
-    }).then(function (data) {
-      console.log(data)
-      res.send(data)
+    db.Average.findByPk(1).then(function (data) {
+      console.log(".get results avg data: ", data);
+      res.send(data);
     })
+
   })
+
+  // app.get("/api/resultsAvg", function (req, res) {
+  //   db.Survey.findAll({
+  //     attributes: {
+  //       include: [
+  //         [sequelize.fn('AVG', sequelize.col('menstruation'))]
+  //       ]
+  //     },
+
+
+  //   }).then(function (data) {
+  //     console.log(data)
+  //     res.send(data)
+  //   })
+  // })
 
   // Create a new Survey
   app.post("/api/survey", function (req, res) {
     console.log("API Survey post route hit");
     console.log("API Routes", req.body);
-    //do math on backend
-    //req.body.total = req.body.menstruation + jsldjfldskjlj
 
+    var menstruationTotal;
+    var pregnancyTotal;
+    var cosmeticsTotal;
+    var garmentTotal;
     var menstruationAvg;
     var pregnancyAvg;
     var cosmeticsAvg;
@@ -48,30 +58,51 @@ module.exports = function (app) {
     var totalTotal;
 
     db.Survey.create(req.body).then(function (surveys) {
-      db.Averages.findAll({}).then(function (data) {
-         menstruationAvg = (parseInt(data.menstruation) + parseInt(req.body.menstruation)) / surveys.id,
-          pregnancyAvg = (data.pregnancy + req.body.pregnancy) / surveys.id,
-          cosmeticsAvg = (data.cosmetics + req.body.cosmetics) / surveys.id,
-          garmentAvg = (data.garment + req.body.garment) / surveys.id,
-          totalTotal = (data.totalExpense + req.body.totalExpense)
+      db.Average.findAll({}).then(function (data) {
+        console.log("data: ", data[0].dataValues);
 
-          var newAvg = {
-            menstruationAvg: menstruationAvg,
-            pregnancyAvg: pregnancyAvg,
-            cosmeticsAvg: cosmeticsAvg,
-            garmentAvg: garmentAvg,
-            totalTotal: totalTotal
-          };
+        var dataAvg = data[0].dataValues;
+        console.log("dataAvg.totalTotal: ", dataAvg.totalTotal);
+        console.log("req.body.totalExpense: ", req.body.totalExpense);
 
-          //db.Averages.update here look in 15/14
+        menstruationTotal = (parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation)) ;
+        pregnancyTotal = (parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation));
+        cosmeticsTotal = (parseFloat(dataAvg.cosmeticsTotal) + parseFloat(req.body.cosmetics));
+        garmentTotal = (parseFloat(dataAvg.garmentTotal) + parseFloat(req.body.garments));
+        menstruationAvg =  menstruationTotal / parseFloat(surveys.id),
+          pregnancyAvg =  pregnancyTotal / parseFloat(surveys.id),
+          cosmeticsAvg =  cosmeticsTotal / parseFloat(surveys.id),
+          garmentAvg =  garmentTotal / parseFloat(surveys.id),
+          totalTotal = (parseFloat(dataAvg.totalTotal) + parseFloat(req.body.totalExpense))
+
+        var newAvg = {
+          menstruationTotal: menstruationTotal,
+          menstruationAvg: menstruationAvg,
+          pregnancyTotal: pregnancyTotal,
+          pregnancyAvg: pregnancyAvg,
+          cosmeticsTotal: cosmeticsTotal,
+          cosmeticsAvg: cosmeticsAvg,
+          garmentTotal: garmentTotal,
+          garmentAvg: garmentAvg,
+          totalTotal: totalTotal
+        };
+
+        console.log("newAvg: ", newAvg);
+
+        //db.Averages.update here look in 15/14
+
+        db.Average.update(newAvg, {
+          where: {
+            id: dataAvg.id
+          }
+        }).then(function (dbAverage) {
+          console.log(dbAverage);
+        });
+        res.send(surveys)
       })
-      res.send(surveys);
+
     })
 
   });
 
-  // Delete a Survey by id
-  app.delete("/api/survey/:id", function(req, res) {
-    surveyController.deleteOne(req, res)
-  });
 };
