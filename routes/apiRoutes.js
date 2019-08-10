@@ -27,6 +27,14 @@ module.exports = function (app) {
 
   })
 
+  app.get("/api/resultsPie", function (req, res) {
+    db.Average.findByPk(1).then(function (data) {
+      console.log(".get results avg data: ", data);
+      res.send(data);
+    })
+
+  })
+
   // app.get("/api/resultsAvg", function (req, res) {
   //   db.Survey.findAll({
   //     attributes: {
