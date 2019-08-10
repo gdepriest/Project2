@@ -20,7 +20,7 @@
 <script>
   var pName = window.location.pathname;
   var route = `/api${pName}`;
-  console.log(route);
+  console.log("window location: ", window.location);
   $.get(route)
     .then(function (data) {
       console.log(data);

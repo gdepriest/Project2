@@ -121,22 +121,22 @@ function handleFormSubmit(event) {
     console.log("front end post happened");
   });
 
-  $("#fullName").val("");
-  $("#county").val("");
-  $("#salary").val("");
-  $("#menstruation").val("");
-  $("#pregnancy").val("");
-  $("#cosmetics").val("");
-  $("#garment").val("");
-  $("#feedbackText").val("");
-  $('#customRadio9').attr("checked", false);
-  $('#customRadio7').attr("checked", false);
-  $('#customRadio5').attr("checked", false);
-  $('#customRadio3').attr("checked", false);
-  $('#customRadio10').attr("checked", true);
-  $('#customRadio8').attr("checked", true);
-  $('#customRadio6').attr("checked", true);
-  $('#customRadio4').attr("checked", true);
+  // $("#fullName").val("");
+  // $("#county").val("");
+  // $("#salary").val("");
+  // $("#menstruation").val("");
+  // $("#pregnancy").val("");
+  // $("#cosmetics").val("");
+  // $("#garment").val("");
+  // $("#feedbackText").val("");
+  // $('#customRadio9').attr("checked", false);
+  // $('#customRadio7').attr("checked", false);
+  // $('#customRadio5').attr("checked", false);
+  // $('#customRadio3').attr("checked", false);
+  // $('#customRadio10').attr("checked", true);
+  // $('#customRadio8').attr("checked", true);
+  // $('#customRadio6').attr("checked", true);
+  // $('#customRadio4').attr("checked", true);
 
 
 
