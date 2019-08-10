@@ -1,21 +1,28 @@
-<div>
-  <div class="row">
-    <div class="col-8 offset-2">
-      <h1 class="text-center">{{title}}</h1>
-      <br>
-      <p>Charts will go here!</p>
-      <div id="personalBar">
-        <canvas id="myBarChart" width="400" height="400"></canvas>
-      </div>
+<div class="rowPersonal">
+  <div class="col-8 offset-2">
+    
+    <h1 class="text-center">{{title}}</h1>
+    
+  <hr>
+  <br>
 
-      <div id="personalPie">
-        <canvas id="myPieChart" width="400" height="400"></canvas>
+    <div id="personalBar">
+      <h4 class="text-left text-light ">Personal Expense Bar Chart</h4>
 
-      </div>
-
+      <canvas id="myBarChart" width="150" height="50"></canvas>
     </div>
+
+    <br>
+    <br>
+
+    <div id="personalPie">
+      <h4 class="text-left text-light ">Percentage of Income Allocated to These Items</h4> 
+      <canvas id="myPieChart" width="180" height="60"></canvas>
+    </div>
+
   </div>
 </div>
+
 
 <script>
   var pName = window.location.pathname;
@@ -50,7 +57,8 @@
               'rgba(255, 206, 86, 1)',
               'rgba(75, 192, 192, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 2
+
           }]
         },
         options: {
@@ -60,11 +68,12 @@
                 beginAtZero: true
               }
             }]
-          }
+          },
+
+          backgroundColor: 'white'
         }
       });
 
-     
 
       var pieCtx = document.getElementById('myPieChart').getContext('2d');
       var myPieChart = new Chart(pieCtx, {
@@ -73,7 +82,7 @@
           labels: ['Percent Spent on Female Items'],
           datasets: [{
             label: 'Percent of Total Income',
-            data: [incPerc, 1-incPerc],
+            data: [incPerc, 1 - incPerc],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -82,7 +91,7 @@
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
             ],
-            borderWidth: 1
+            borderWidth: 2
           }]
         },
         options: {
