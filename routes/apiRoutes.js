@@ -13,7 +13,7 @@ module.exports = function (app) {
     id = req.params.id;
     console.log(id);
     db.Survey.findByPk(id).then(function (data) {
-      console.log(".get data: ", data);
+      // console.log(".get data: ", data);
       res.send(data);
     })
 
@@ -73,15 +73,15 @@ module.exports = function (app) {
         console.log("dataAvg.totalTotal: ", dataAvg.totalTotal);
         console.log("req.body.totalExpense: ", req.body.totalExpense);
 
-        menstruationTotal = (parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation)) ;
+        menstruationTotal = parseFloat((parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation))).toFixed(2);
         pregnancyTotal = (parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation));
         cosmeticsTotal = (parseFloat(dataAvg.cosmeticsTotal) + parseFloat(req.body.cosmetics));
         garmentTotal = (parseFloat(dataAvg.garmentTotal) + parseFloat(req.body.garments));
-        menstruationAvg =  menstruationTotal / parseFloat(surveys.id),
-          pregnancyAvg =  pregnancyTotal / parseFloat(surveys.id),
-          cosmeticsAvg =  cosmeticsTotal / parseFloat(surveys.id),
-          garmentAvg =  garmentTotal / parseFloat(surveys.id),
-          totalTotal = (parseFloat(dataAvg.totalTotal) + parseFloat(req.body.totalExpense))
+        menstruationAvg = parseFloat(menstruationTotal / parseFloat(surveys.id)).toFixed(2),
+        pregnancyAvg = parseFloat(pregnancyTotal / parseFloat(surveys.id)).toFixed(2),
+        cosmeticsAvg = parseFloat(cosmeticsTotal / parseFloat(surveys.id)).toFixed(2),
+        garmentAvg = parseFloat(garmentTotal / parseFloat(surveys.id)).toFixed(2),
+        totalTotal = parseFloat(parseFloat(dataAvg.totalTotal) + parseFloat(req.body.totalExpense)).toFixed(2)
 
         var newAvg = {
           menstruationTotal: menstruationTotal,
