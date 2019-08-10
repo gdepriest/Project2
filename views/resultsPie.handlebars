@@ -1,9 +1,76 @@
 <div>
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1 class="text-center">{{title}}</h1>
-        <br>
-        <p>Charts will go here!</p>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h1 class="text-center">{{title}}</h1>
+      <hr>
+      <br>
+      <div id="stPieChart">
+        <h4 class="text-left text-light ">Average Personal Expense Bar Chart</h4>
+
+        <canvas id="statePieChart" width="150" height="50"></canvas>
       </div>
+
     </div>
+  </div>
 </div>
+
+{{!-- cosmeticsAvg: "9.99"
+cosmeticsTotal: "9.99"
+createdAt: "2019-08-10T17:34:24.000Z"
+garmentAvg: "9.99"
+garmentTotal: "9.99"
+id: 1
+menstruationAvg: "9.99"
+menstruationTotal: "9.99"
+pregnancyAvg: "9.99"
+pregnancyTotal: "9.99"
+totalTotal: "9.99" --}}
+
+
+<script>
+  var pName = window.location.pathname;
+  var route = `/api${pName}`;
+  console.log(route);
+  $.get(route)
+    .then(function (data) {
+      console.log("loading this page worked", data)
+      var stateTaxRate = .029;
+      var stateTaxRev = 3313143000;
+      var coloradoWomenPop = 2825000;
+
+      var totalTotal = parseFloat(data.totalTotal);
+      var taxTotal = totalTotal * stateTaxRate;
+
+      var totalTaxPercent = taxTotal / stateTaxRev;
+
+      var statePieCtx = document.getElementById('statePieChart').getContext('2d');
+      var statePieChart = new Chart(statePieCtx, {
+        type: 'pie',
+        data: {
+          labels: ['Total Sales Tax Expense on Female Items'],
+          datasets: [{
+            label: 'Percent of Total State Sales Tax Revenue',
+            data: [totalTaxPercent, 1 - totalTaxPercent],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    });
+</script>
