@@ -43,6 +43,7 @@ module.exports = function(app) {
     })
   })
 
+  
   app.get("/personalData/:id", function(req, res) {
 
       res.render("personal", {
