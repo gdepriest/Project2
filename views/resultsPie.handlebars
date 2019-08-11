@@ -5,27 +5,24 @@
       <hr>
       <br>
       <div id="stPieChart">
-        <h4 class="text-left text-light ">Average Personal Expense Bar Chart</h4>
-
+        <h4 class="text-left text-light ">Colorado State Sales Tax Revenue</h4>
+        <p>
+          Percent of the total $3,313,143,000 state sales tax revenue that was collected from the purchase of female-specific items.
+        </p>
         <canvas id="statePieChart" width="150" height="50"></canvas>
+        <br>
+        <p>
+          Until we have many responses, we don't expect the sliver of the pie that represents female-specific items to be visible.  Even once visible, it still shouldn't be an enormo
+          us piece of the pie, but we predict that the revenue collected off of these items is substantial enough to show up.  We look forward to seeing the visual representation of this portion of state revenue grow as more users submit responses.          
+        </p>
+        <p>
+          Check back for updates to this graph!
+        </p>
       </div>
 
     </div>
   </div>
 </div>
-
-{{!-- cosmeticsAvg: "9.99"
-cosmeticsTotal: "9.99"
-createdAt: "2019-08-10T17:34:24.000Z"
-garmentAvg: "9.99"
-garmentTotal: "9.99"
-id: 1
-menstruationAvg: "9.99"
-menstruationTotal: "9.99"
-pregnancyAvg: "9.99"
-pregnancyTotal: "9.99"
-totalTotal: "9.99" --}}
-
 
 <script>
   var pName = window.location.pathname;
@@ -47,10 +44,10 @@ totalTotal: "9.99" --}}
       var statePieChart = new Chart(statePieCtx, {
         type: 'pie',
         data: {
-          labels: ['Total Sales Tax Expense on Female Items'],
+          labels: ['Percent of CO sales tax revenue from female-specific items.'],
           datasets: [{
-            label: 'Percent of Total State Sales Tax Revenue',
-            data: [totalTaxPercent, 1 - totalTaxPercent],
+            label: 'Female-specific',
+            data: [totalTaxPercent, 1-totalTaxPercent],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',

@@ -1,197 +1,208 @@
-    <h1 class="text-center">{{title}}</center>
+<h1 class="text-center">{{title}}</h1>
+<br>
+
+<div class="col-8 mx-auto">
+
+  <p id="surveyIntro">
+    Thanks for participating in HER COSST! Make whole-dollar estimates on your expendidures in the following categories:
+    menstruation, pregnancy, cosmetics, and garments.   <br> 
+    The tax figures used are from 2018; please make estimates based on that year's purchases.
+    Indicate whether your estimates are yearly or monthly.  <br>
+    Your participation is voluntary, and information collected will not be shared with third parties. 
+  </p>
+  <form class="survey" id="cost-survey">
+
+    <div class="form-group text-left">
+      <label class="control-label">Name</label>
+      <div class="input-group"><span class="input-group-addon"></span><input id="fullName" name="fullName"
+          placeholder="" class="form-control" required="true" value="" type="text">
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label class="control-label">County</label>
+      <div class="inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon" style="max-width: 100%;"></span>
+          <select class="selectpicker form-control" id="county" required>
+            <option value="">...........................</option>
+            <option value="Adams">Adams</option>
+            <option value="Alamosa">Alamosa</option>
+            <option value="Archuleta">Archuleta</option>
+            <option value="Baca">Baca</option>
+            <option value="Bent">Bent</option>
+            <option value="Boulder">Boulder</option>
+            <option value="Broomfield">Broomfield</option>
+            <option value="Chaffee">Chaffee</option>
+            <option value="Cheyenne">Cheyenne</option>
+            <option value="Clear Creek">Clear Creek</option>
+            <option value="Conejos">Conejos</option>
+            <option value="Costilla">Costilla</option>
+            <option value="Crowley">Crowley</option>
+            <option value="Custer">Custer</option>
+            <option value="Delta">Delta</option>
+            <option value="Denver">Denver</option>
+            <option value="Dolores">Dolores</option>
+            <option value="Douglas">Douglas</option>
+            <option value="Eagle">Eagle</option>
+            <option value="El Paso">El Paso</option>
+            <option value="Elbert">Elbert</option>
+            <option value="Fremont">Fremont</option>
+            <option value="Garfield">Garfield</option>
+            <option value="Gilpin">Gilpin</option>
+            <option value="Grand">Grand</option>
+            <option value="Gunnison">Gunnison</option>
+            <option value="Hinsdale">Hinsdale</option>
+            <option value="Huerfano">Huerfano</option>
+            <option value="Jackson">Jackson</option>
+            <option value="Jefferson">Jefferson</option>
+            <option value="Kiowa">Kiowa</option>
+            <option value="Kit Carson">Kit Carson</option>
+            <option value="La Plata">La Plata</option>
+            <option value="Lake">Lake</option>
+            <option value="Larimer">Larimer</option>
+            <option value="Las Animas">Las Animas</option>
+            <option value="Lincoln">Lincoln</option>
+            <option value="Logan">Logan</option>
+            <option value="Mesa">Mesa</option>
+            <option value="Mineral">Mineral</option>
+            <option value="Moffat">Moffat</option>
+            <option value="Montezuma">Montezuma</option>
+            <option value="Montrose">Montrose</option>
+            <option value="Morgan">Morgan</option>
+            <option value="Otero">Otero</option>
+            <option value="Ouray">Ouray</option>
+            <option value="Park">Park</option>
+            <option value="Phillips">Phillips</option>
+            <option value="Pitkin">Pitkin</option>
+            <option value="Prowers">Prowers</option>
+            <option value="Pueblo">Pueblo</option>
+            <option value="Rio Blanco">Rio Blanco</option>
+            <option value="Rio Grande">Rio Grande</option>
+            <option value="Routt">Routt</option>
+            <option value="Saguache">Saguache</option>
+            <option value="San Juan">San Juan</option>
+            <option value="San Miguel">San Miguel</option>
+            <option value="Sedgwick">Sedgwick</option>
+            <option value="Summit">Summit</option>
+            <option value="Teller">Teller</option>
+            <option value="Washington">Washington</option>
+            <option value="Weld">Weld</option>
+            <option value="Yuma">Yuma</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label class="control-label">2018 Income</label>
+      <div class="row">
+        <div class="col-6">
+          <input id="salary" name="salary" placeholder="$" class="form-control" required="true" value=""
+            type="number" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label class="control-label">Menstruation: please account for any non-prescription purchases made in 2018.</label>
+      <div class="row">
+        <div class="col-6">
+          <input id="menstruation" name="menstruation" placeholder="$" class="form-control" required="true" value=""
+            type="number" />
+        </div>
+        <div id="mOrY" class="col-6 custom-control custom-radio">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio3" name="menstruationMonthly" class="custom-control-input" value="true">
+            <label class="custom-control-label" for="customRadio3">Monthly</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio4" name="menstruationMonthly" class="custom-control-input" value="false"
+              checked="checked">
+            <label class="custom-control-label" for="customRadio4">Yearly</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label class="control-label">Pregnancy: if not pregnant in the year 2018, please record a 0.</label>
+      <div class="row">
+        <div class="col-6">
+          <input id="pregnancy" name="pregnancy" placeholder="$" class="form-control" required="true" value=""
+            type="number" />
+        </div>
+        <div class="col-6 custom-control custom-radio">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio5" name="pregnancyMonthly" class="custom-control-input" value=true>
+            <label class="custom-control-label" for="customRadio5">Monthly</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio6" name="pregnancyMonthly" class="custom-control-input" value=false
+              checked="checked">
+            <label class="custom-control-label" for="customRadio6">Yearly</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label class="control-label">Cosmetics: account for 2018 purchases that are female-specific, i.e. cosmetics that men do not also use.</label>
+      <div class="row">
+        <div class="col-6">
+          <input id="cosmetics" name="cosmetics" placeholder="$" class="form-control" required="true" value=""
+            type="number" />
+        </div>
+        <div class="col-6 custom-control custom-radio">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio7" name="cosmeticsMonthly" class="custom-control-input" value="true">
+            <label class="custom-control-label" for="customRadio7">Monthly</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio8" name="cosmeticsMonthly" class="custom-control-input" value="false"
+              checked="checked">
+            <label class="custom-control-label" for="customRadio8">Yearly</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label class="control-label">Garments: account for 2018 purchases made on clothing that only women wear. </label>
+      <div class="row">
+        <div class="col-6">
+          <input id="garment" name="garment" placeholder="$" class="form-control" required="true" value=""
+            type="number" />
+        </div>
+        <div class="col-6 custom-control custom-radio">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio9" name="garmentMonthly" class="custom-control-input" value="true">
+            <label class="custom-control-label" for="customRadio9">Monthly</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio10" name="garmentMonthly" class="custom-control-input" value="false"
+              checked="checked">
+            <label class="custom-control-label" for="customRadio10">Yearly</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-left">
+      <label for="exampleFormControlTextarea1">Feedback</label>
+      <textarea class="form-control" id="feedbackText" rows="3"></textarea>
+    </div>
+
+    <br>
     <br>
 
-      <div class="col-8 mx-auto">
-        <p>Description regarding 2018 data, entering monthly/yearly amounts, etc.</p>
-        <form class="survey" id="cost-survey">
-
-          <div class="form-group text-left">
-            <label class="control-label">Name</label>
-            <div class="input-group"><span class="input-group-addon"></span><input id="fullName" name="fullName"
-                placeholder="" class="form-control" required="true" value="" type="text">
-            </div>
-          </div>
-
-          <div class="form-group text-left">
-            <label class="control-label">County</label>
-            <div class="inputGroupContainer">
-              <div class="input-group">
-                <span class="input-group-addon" style="max-width: 100%;"></span>
-                <select class="selectpicker form-control" id="county" required>
-                  <option value="">...........................</option>
-                  <option value="Adams">Adams</option>
-                  <option value="Alamosa">Alamosa</option>
-                  <option value="Archuleta">Archuleta</option>
-                  <option value="Baca">Baca</option>
-                  <option value="Bent">Bent</option>
-                  <option value="Boulder">Boulder</option>
-                  <option value="Broomfield">Broomfield</option>
-                  <option value="Chaffee">Chaffee</option>
-                  <option value="Cheyenne">Cheyenne</option>
-                  <option value="Clear Creek">Clear Creek</option>
-                  <option value="Conejos">Conejos</option>
-                  <option value="Costilla">Costilla</option>
-                  <option value="Crowley">Crowley</option>
-                  <option value="Custer">Custer</option>
-                  <option value="Delta">Delta</option>
-                  <option value="Denver">Denver</option>
-                  <option value="Dolores">Dolores</option>
-                  <option value="Douglas">Douglas</option>
-                  <option value="Eagle">Eagle</option>
-                  <option value="El Paso">El Paso</option>
-                  <option value="Elbert">Elbert</option>
-                  <option value="Fremont">Fremont</option>
-                  <option value="Garfield">Garfield</option>
-                  <option value="Gilpin">Gilpin</option>
-                  <option value="Grand">Grand</option>
-                  <option value="Gunnison">Gunnison</option>
-                  <option value="Hinsdale">Hinsdale</option>
-                  <option value="Huerfano">Huerfano</option>
-                  <option value="Jackson">Jackson</option>
-                  <option value="Jefferson">Jefferson</option>
-                  <option value="Kiowa">Kiowa</option>
-                  <option value="Kit Carson">Kit Carson</option>
-                  <option value="La Plata">La Plata</option>
-                  <option value="Lake">Lake</option>
-                  <option value="Larimer">Larimer</option>
-                  <option value="Las Animas">Las Animas</option>
-                  <option value="Lincoln">Lincoln</option>
-                  <option value="Logan">Logan</option>
-                  <option value="Mesa">Mesa</option>
-                  <option value="Mineral">Mineral</option>
-                  <option value="Moffat">Moffat</option>
-                  <option value="Montezuma">Montezuma</option>
-                  <option value="Montrose">Montrose</option>
-                  <option value="Morgan">Morgan</option>
-                  <option value="Otero">Otero</option>
-                  <option value="Ouray">Ouray</option>
-                  <option value="Park">Park</option>
-                  <option value="Phillips">Phillips</option>
-                  <option value="Pitkin">Pitkin</option>
-                  <option value="Prowers">Prowers</option>
-                  <option value="Pueblo">Pueblo</option>
-                  <option value="Rio Blanco">Rio Blanco</option>
-                  <option value="Rio Grande">Rio Grande</option>
-                  <option value="Routt">Routt</option>
-                  <option value="Saguache">Saguache</option>
-                  <option value="San Juan">San Juan</option>
-                  <option value="San Miguel">San Miguel</option>
-                  <option value="Sedgwick">Sedgwick</option>
-                  <option value="Summit">Summit</option>
-                  <option value="Teller">Teller</option>
-                  <option value="Washington">Washington</option>
-                  <option value="Weld">Weld</option>
-                  <option value="Yuma">Yuma</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-group text-left">
-            <label class="control-label">Yearly Income</label>
-            <div class="row">
-              <div class="col-6">
-                <input id="salary" name="salary" placeholder="$" class="form-control" required="true" value=""
-                  type="number"/>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group text-left">
-            <label class="control-label">Menstruation</label>
-            <div class="row">
-              <div class="col-6">
-                <input id="menstruation" name="menstruation" placeholder="$" class="form-control" required="true"
-                  value="" type="number" />
-              </div>
-              <div id="mOrY" class="col-6 custom-control custom-radio">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio3" name="menstruationMonthly" class="custom-control-input" value="true">
-                  <label class="custom-control-label" for="customRadio3">Monthly</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio4" name="menstruationMonthly" class="custom-control-input" value="false" checked="checked">
-                  <label class="custom-control-label" for="customRadio4">Yearly</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group text-left">
-            <label class="control-label">Pregnancy</label>
-            <div class="row">
-              <div class="col-6">
-                <input id="pregnancy" name="pregnancy" placeholder="$" class="form-control" required="true" value=""
-                  type="number" />
-              </div>
-              <div class="col-6 custom-control custom-radio">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio5" name="pregnancyMonthly" class="custom-control-input" value=true>
-                  <label class="custom-control-label" for="customRadio5">Monthly</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio6" name="pregnancyMonthly" class="custom-control-input" value=false checked="checked">
-                  <label class="custom-control-label" for="customRadio6">Yearly</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group text-left">
-            <label class="control-label">Cosmetics</label>
-            <div class="row">
-              <div class="col-6">
-                <input id="cosmetics" name="cosmetics" placeholder="$" class="form-control" required="true" value=""
-                  type="number" />
-              </div>
-              <div class="col-6 custom-control custom-radio">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio7" name="cosmeticsMonthly" class="custom-control-input" value="true">
-                  <label class="custom-control-label" for="customRadio7">Monthly</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio8" name="cosmeticsMonthly" class="custom-control-input" value="false" checked="checked">
-                  <label class="custom-control-label" for="customRadio8">Yearly</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group text-left">
-            <label class="control-label">Garments</label>
-            <div class="row">
-              <div class="col-6">
-                <input id="garment" name="garment" placeholder="$" class="form-control" required="true" value=""
-                  type="number" />
-              </div>
-              <div class="col-6 custom-control custom-radio">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio9" name="garmentMonthly" class="custom-control-input" value="true">
-                  <label class="custom-control-label" for="customRadio9">Monthly</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio10" name="garmentMonthly" class="custom-control-input" value="false" checked="checked">
-                  <label class="custom-control-label" for="customRadio10">Yearly</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group text-left">
-            <label for="exampleFormControlTextarea1">Feedback</label>
-            <textarea class="form-control" id="feedbackText" rows="3"></textarea>
-          </div>
-
-          <br>
-          <br>
-       
-          <div class="row">
-                <a  href="/personalData">
-            <button type="submit" class="btn btn-success text-right" id="submit">Submit</button>
-          </a>  
-          </div>
-        </form>
-      </div> 
+    <div class="row">
+      <a href="/personalData">
+        <button type="submit" class="btn btn-success text-right" id="submit">Submit</button>
+      </a>
+    </div>
+  </form>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

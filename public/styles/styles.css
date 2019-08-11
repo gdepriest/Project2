@@ -14,11 +14,25 @@ nav {
 
 
 #myBarChart, #myPieChart{
-  /* margin-bottom: 100px; */
-   /* background: white; */
    padding:20px;
 }
 
 .rowPersonal{
   padding:30px;
+}
+
+#her {
+  font-size: 120px;
+  margin-bottom: 0px;
+}
+#cosst {
+  font-size: 70px;
+  margin-bottom: 0px;
+}
+#costsatax {
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+#surveyIntro {
+  font-size: 20px;
 }
