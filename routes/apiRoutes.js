@@ -1,6 +1,5 @@
 var db = require("../models");
 
-// var surveyController = require("../controllers/survey-controller")
 module.exports = function (app) {
   // Get all Survey Data
   app.get("/api/survey", function (req, res) {
@@ -13,7 +12,6 @@ module.exports = function (app) {
     id = req.params.id;
     console.log(id);
     db.Survey.findByPk(id).then(function (data) {
-      // console.log(".get data: ", data);
       res.send(data);
     })
 
@@ -34,21 +32,6 @@ module.exports = function (app) {
     })
 
   })
-
-  // app.get("/api/resultsAvg", function (req, res) {
-  //   db.Survey.findAll({
-  //     attributes: {
-  //       include: [
-  //         [sequelize.fn('AVG', sequelize.col('menstruation'))]
-  //       ]
-  //     },
-
-
-  //   }).then(function (data) {
-  //     console.log(data)
-  //     res.send(data)
-  //   })
-  // })
 
   // Create a new Survey
   app.post("/api/survey", function (req, res) {
@@ -96,8 +79,6 @@ module.exports = function (app) {
         };
 
         console.log("newAvg: ", newAvg);
-
-        //db.Averages.update here look in 15/14
 
         db.Average.update(newAvg, {
           where: {
