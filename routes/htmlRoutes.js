@@ -12,7 +12,7 @@ module.exports = function(app) {
 
   app.get("/", function(req, res) {
     res.render("home", {
-      title: "Women's Contribution to Sales Tax Revenue in Colorado"
+      // title: "HER COSST"
     });
   })
 
