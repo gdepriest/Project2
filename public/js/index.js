@@ -3,7 +3,6 @@ var API = {
     return $.post("/api/survey", newUserInput)
       .then(data => {
         var id = data.id;
-        console.log("index.js data: ", data);
         window.location = `/personalData/${id}`
       })
   },
@@ -24,7 +23,6 @@ var incomePercentage;
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  console.log("in submit ");
 
   $("#cost-survey")[0].reportValidity()
 
@@ -68,14 +66,12 @@ function handleFormSubmit(event) {
     cosmetics_monthly: ($("input:radio[name ='cosmeticsMonthly']:checked").val() === "false") ? false : true,
     garments: garmentTotal,
     garments_monthly: ($("input:radio[name ='garmentMonthly']:checked").val() === "false") ? false : true,
-    feedback: $("#feedbackText").val().trim(), 
+    feedback: $("#feedbackText").val().trim(),
     totalExpense: totalExpense,
     incomePercentage: incomePercentage
   };
 
-  API.saveSurvey(newUserInput).then(function () {
-    console.log("front end post happened");
-  });
+  API.saveSurvey(newUserInput).then(function () {});
 
   $("#fullName").val("");
   $("#county").val("");
