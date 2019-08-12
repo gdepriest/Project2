@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   app.get("/resultsAvg", function(req, res) {
     res.render("resultsAvg", {
-      title: "Collected Data Summary"
+      title: "Respondent Averages"
     })
   })
 
