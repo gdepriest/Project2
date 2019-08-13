@@ -48,15 +48,15 @@ module.exports = function (app) {
 
         var dataAvg = data[0].dataValues;
 
-        menstruationTotal = parseFloat((parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation))).toFixed(2);
+        menstruationTotal = parseFloat((parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation)));
         pregnancyTotal = (parseFloat(dataAvg.menstruationTotal) + parseFloat(req.body.menstruation));
         cosmeticsTotal = (parseFloat(dataAvg.cosmeticsTotal) + parseFloat(req.body.cosmetics));
         garmentTotal = (parseFloat(dataAvg.garmentTotal) + parseFloat(req.body.garments));
         menstruationAvg = parseFloat(menstruationTotal / parseFloat(surveys.id)).toFixed(2),
-          pregnancyAvg = parseFloat(pregnancyTotal / parseFloat(surveys.id)).toFixed(2),
-          cosmeticsAvg = parseFloat(cosmeticsTotal / parseFloat(surveys.id)).toFixed(2),
-          garmentAvg = parseFloat(garmentTotal / parseFloat(surveys.id)).toFixed(2),
-          totalTotal = parseFloat(parseFloat(dataAvg.totalTotal) + parseFloat(req.body.totalExpense)).toFixed(2)
+        pregnancyAvg = parseFloat(pregnancyTotal / parseFloat(surveys.id)).toFixed(2),
+        cosmeticsAvg = parseFloat(cosmeticsTotal / parseFloat(surveys.id)).toFixed(2),
+        garmentAvg = parseFloat(garmentTotal / parseFloat(surveys.id)).toFixed(2),
+        totalTotal = parseFloat(parseFloat(dataAvg.totalTotal) + parseFloat(req.body.totalExpense)).toFixed(2)
 
         var newAvg = {
           menstruationTotal: menstruationTotal,
