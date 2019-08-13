@@ -52,6 +52,7 @@ function handleFormSubmit(event) {
 
   totalExpense = menstruationTotal + pregnancyTotal + cosmeticsTotal + garmentTotal;
 
+  
   incomePercentage = parseFloat(totalExpense / parseInt($("#salary").val().trim()));
 
   var newUserInput = {
