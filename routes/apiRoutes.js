@@ -8,6 +8,12 @@ module.exports = function (app) {
     })
   });
 
+  app.get("/api/average", function (req, res) {
+    db.Average.findAll({}).then(function (surveys) {
+      res.json(surveys);
+    })
+  });
+
   app.get("/api/personalData/:id", function (req, res) {
     id = req.params.id;
     db.Survey.findByPk(id).then(function (data) {
